@@ -33,3 +33,10 @@ SSPopup <- c("<a href='https://www.stratfordfestival.ca/Visit'>Welcome to Stratf
 mymap %>% addTiles() %>% 
   addMarkers(lat=43.36933898925781, lng=-80.98147583007812, popup=SSPopup)
 ```
+## Url for for the ouput map widgets
+```{r Url for the map widgets}
+library(htmlwidgets)
+saveWidget(mymap, file="SSmap.html", selfcontained=FALSE)
+```
+
+
