@@ -1,0 +1,35 @@
+---
+title: "DS9-WK2-PJ"
+author: "VIOLET-TAN"
+date: "02/01/2021"
+output: html_document
+---
+
+
+## MY FIRST LEAFLET MAP
+
+Review criteria
+The rubric contains the following two questions:
+1.	Does the web page feature a date and is this date less than two months before the date that you're grading this assignment?
+2.	Does the web page feature an interactive map that appears to have been created with Leaflet?
+
+
+```{r LOADING PACKAGES}
+library(leaflet)
+mymap <- leaflet()%>%addTiles()
+```
+
+## CREATE A MARKER WITH A PICTURE OF STRAFORD SHAKESPEAR FESTIVAL AND A LINK TO HOMEPAGE OF stratfordfestival.ca
+
+You can also embed plots, for example:
+
+```{r ADDING MARKER}
+SSIcon <- makeIcon(iconUrl="https://blog.theparlour.ca/wp-content/uploads/2017/07/festival-theatre.jpg", iconWidth=30*408/255, iconHeight=30,                        iconAnchorX=30*408/255/2,iconAnchorY=30/2)
+```
+
+## ADDING MARDER TO THE MAP
+```{r ADDING MARKER TO THE MAP AND DISPLAY THE MAP}
+SSPopup <- c("<a href='https://www.stratfordfestival.ca/Visit'>Welcome to Stratford Shakespear 2021-01-04<br><img src='https://blog.theparlour.ca/wp-content/uploads/2017/07/festival-theatre.jpg'width='240'height='130'alt='StratfordFestival'title='StratfordShakespearPlays'></a>")
+mymap %>% addTiles() %>% 
+  addMarkers(lat=43.36933898925781, lng=-80.98147583007812, popup=SSPopup)
+```
